@@ -141,10 +141,10 @@ export default function TableData({ searchQuery }: TabelDataProps) {
             </TableHeader>
             <TableBody>
                {filteredFaqData.map((faq) => (
-                  <TableRow key={faq.id} className="text-center">
+                  <TableRow key={faq.id} className="text-center text-[##667080] text-[14px]">
                      <TableCell className="border-2">{faq.id}</TableCell>
-                     <TableCell className="border-2">{faq.title}</TableCell>
-                     <TableCell className="border-2">{faq.description.slice(0, 70)}....</TableCell>
+                     <TableCell className="border-2">{faq.title.toUpperCase()}</TableCell>
+                     <TableCell className="border-2">{faq.description.slice(0, 70).toUpperCase()}....</TableCell>
                      <TableCell className="border-2">{faq.createdAt}</TableCell>
                      <TableCell className="border-2">
                         <Dialog>
