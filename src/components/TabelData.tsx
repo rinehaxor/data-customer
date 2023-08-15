@@ -49,6 +49,7 @@ export default function TableData({ searchQuery }: TabelDataProps) {
       setFaqData(sortedData);
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc'); // Ubah arah pengurutan
    };
+   //sort by create
    const sortDataByCreate = () => {
       const sortedData = [...filteredFaqData].sort((a, b) => {
          const dateA = new Date(a.createdAt);
@@ -72,6 +73,20 @@ export default function TableData({ searchQuery }: TabelDataProps) {
             return a.title.localeCompare(b.title);
          } else {
             return b.title.localeCompare(a.title);
+         }
+      });
+
+      setFaqData(sortedData);
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc'); // Ubah arah pengurutan
+   };
+
+   //sort by description
+   const sortDataByDescription = () => {
+      const sortedData = [...filteredFaqData].sort((a, b) => {
+         if (sortDirection === 'asc') {
+            return a.description.localeCompare(b.description);
+         } else {
+            return b.description.localeCompare(a.description);
          }
       });
 
@@ -104,7 +119,7 @@ export default function TableData({ searchQuery }: TabelDataProps) {
                   <TableHead className="text-white ">
                      <div className="flex justify-center w-[550px]">
                         <div className=" pl-[10px] pt-[10px] text-[16px] pr-[50px] ">Description</div>
-                        <div className="py-[16px] pr-[13px]" onClick={sortDataByTitle}>
+                        <div className="py-[16px] pr-[13px]" onClick={sortDataByDescription}>
                            <svg width={18} height={12}>
                               <image href={filter} />
                            </svg>
